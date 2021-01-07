@@ -7,18 +7,18 @@ public class OxygenCylinder {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OxygenCylinder(Integer id, Integer volume) {
+	public OxygenCylinder(String id, Integer volume) {
 		super();
 		this.id = id;
 		this.volume = volume;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 
 	public Integer getVolume() {
@@ -34,7 +34,7 @@ public class OxygenCylinder {
 		return "ID: " + id + "| Volume: " + volume;
 	}
 
-	private Integer id;
+	private String id;
 	private Integer volume;
 
 }

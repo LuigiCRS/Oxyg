@@ -9,7 +9,7 @@ public class Pharmacist {
 
 	
 	/*Singleton*/
-	public Pharmacist(String id, String name, String surname) {
+	public Pharmacist(Integer id, String name, String surname) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,12 +23,12 @@ public class Pharmacist {
 		return instance;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(int i) {
+		this.id = i;
 	}
 
 	public String getName() {
@@ -58,7 +58,7 @@ public class Pharmacist {
 
 
 	private static Pharmacist instance = null;
-	private String id;
+	private Integer id;
 	private String name;
 	private String surname;
 

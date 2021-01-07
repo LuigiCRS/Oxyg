@@ -47,7 +47,7 @@ public class DBManager {
 	}
 	
 	
-    private final String databaseURL = "jdbc:mysql://localhost:3306/";
+    private final String databaseURL = "jdbc:mysql://localhost:3306/oxyg";
     private String username = "root";
     private String password = "root";
     
