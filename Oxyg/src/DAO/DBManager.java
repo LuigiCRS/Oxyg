@@ -16,7 +16,7 @@ public class DBManager {
 	
 	
 	public static DBManager getInstance() {
-		if (instance == null) {
+		if (DBManager.instance == null) {
 			instance = new DBManager();
 		}
 		return instance;
@@ -25,7 +25,7 @@ public class DBManager {
 	
 	public void openConnection() {
 		try {
-			this.conn = DriverManager.getConnection(databaseURL, this.username, this.password);
+			this.conn = DriverManager.getConnection(this.databaseURL, this.username, this.password);
 			System.out.println("Database connection enstablished.");
 		} catch (SQLException e) {
 			System.err.println("Connection error.");
@@ -47,7 +47,7 @@ public class DBManager {
 	}
 	
 	
-    private String databaseURL = "jdbc:mysql://localhost:3306/oxyg";
+    private final String databaseURL = "jdbc:mysql://localhost:3306/";
     private String username = "root";
     private String password = "root";
     
