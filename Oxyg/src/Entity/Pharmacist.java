@@ -1,7 +1,29 @@
 package Entity;
 
 public class Pharmacist {
+	
+	
+	public Pharmacist() {
+		super();
+	}
 
+	
+	/*Singleton*/
+	public Pharmacist(Pharmacist istance, String id, String name, String surname, String pharmacyName) {
+		super();
+		this.istance = istance;
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.pharmacyName = pharmacyName;
+	}
+
+	public Pharmacist getIstance() {
+		if(this.istance == null) {
+			this.istance = new Pharmacist();
+		}
+		return istance;
+	}
 
 	public String getId() {
 		return id;
@@ -35,8 +57,6 @@ public class Pharmacist {
 		this.pharmacyName = pharmacyName;
 	}
 	
-	
-	
 
 	@Override
 	public String toString() {
@@ -46,6 +66,7 @@ public class Pharmacist {
 
 
 
+	private Pharmacist istance = null;
 	private String id;
 	private String name;
 	private String surname;
