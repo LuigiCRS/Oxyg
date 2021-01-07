@@ -17,7 +17,7 @@ public class PharmacistDAO {
 	public static Pharmacist readPharmacist(DBManager db, String username, String password) {
 		Pharmacist p = new Pharmacist();
 		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("SELECT * FROM pharmacist WHERE " + "username = ? && password = PASSWORD(?)")) {
+				.prepareStatement("SELECT * FROM pharmacist WHERE " + "username = ? && password = MD5(?)")) {
 			ps.setString(1, username);
 			ps.setString(2, password);
 			try (ResultSet rs = ps.executeQuery()) {
@@ -36,7 +36,7 @@ public class PharmacistDAO {
 	
 	public static void writePharmacist(DBManager db, String name, String surname, String username, String password) {
 		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("INSERT INTO pharmacist(name, surname, username, password) VALUES (?, ?, ?, PASSWORD(?)")){
+				.prepareStatement("INSERT INTO pharmacist(name, surname, username, password) VALUES (?, ?, ?, MD5(?))")){
 			ps.setString(1, name);
 			ps.setString(2, surname);
 			ps.setString(3, username);
