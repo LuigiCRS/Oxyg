@@ -4,7 +4,6 @@ public class Client {
 
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Client(String name, String surname, String address, String cF) {
@@ -50,6 +49,38 @@ public class Client {
 	@Override
 	public String toString() {
 		return "Client [name=" + name + ", surname=" + surname + ", address=" + address + ", CF=" + CF + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Client other = (Client) obj;
+		if (CF == null) {
+			if (other.CF != null)
+				return false;
+		} else if (!CF.equals(other.CF))
+			return false;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equals(other.surname))
+			return false;
+		return true;
 	}
 
 	private String name;

@@ -32,21 +32,20 @@ public class PharmacistDAO {
 		}
 		return p;
 	}
-	
-	
+
 	public static void writePharmacist(DBManager db, String name, String surname, String username, String password) {
-		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("INSERT INTO pharmacist(name, surname, username, password) VALUES (?, ?, ?, MD5(?))")){
+		try (PreparedStatement ps = db.getConnection().prepareStatement(
+				"INSERT INTO pharmacist(name, surname, username, password) VALUES (?, ?, ?, MD5(?))")) {
 			ps.setString(1, name);
 			ps.setString(2, surname);
 			ps.setString(3, username);
 			ps.setString(4, password);
-			
+
 			ps.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.err.println("Insert pharmacist error. " + e);
 		}
-		
+
 	}
 }

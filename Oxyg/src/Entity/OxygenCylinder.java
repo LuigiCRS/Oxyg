@@ -34,6 +34,28 @@ public class OxygenCylinder {
 		return "ID: " + id + "| Volume: " + volume;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OxygenCylinder other = (OxygenCylinder) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (volume == null) {
+			if (other.volume != null)
+				return false;
+		} else if (!volume.equals(other.volume))
+			return false;
+		return true;
+	}
+
 	private String id;
 	private Integer volume;
 

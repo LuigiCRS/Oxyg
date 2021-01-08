@@ -20,8 +20,7 @@ public class ClientDAO {
 
 	public static ArrayList<Client> readClients(DBManager db) {
 		ArrayList<Client> clients = new ArrayList<Client>();
-		try (PreparedStatement p = db.getConnection()
-				.prepareStatement("SELECT * FROM client")) {
+		try (PreparedStatement p = db.getConnection().prepareStatement("SELECT * FROM client")) {
 
 			try (ResultSet rs = p.executeQuery()) {
 				while (rs.next()) {
@@ -40,8 +39,7 @@ public class ClientDAO {
 
 	public static Client readClient(DBManager db, String CF) {
 		Client c = new Client();
-		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("SELECT * FROM client WHERE CF = ?")) {
+		try (PreparedStatement ps = db.getConnection().prepareStatement("SELECT * FROM client WHERE CF = ?")) {
 			ps.setString(1, CF);
 
 			try (ResultSet rs = ps.executeQuery()) {
