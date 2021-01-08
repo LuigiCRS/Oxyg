@@ -25,10 +25,11 @@ public class DBManager {
 	
 	public void openConnection() {
 		try {
+			
 			this.conn = DriverManager.getConnection(this.databaseURL, this.username, this.password);
 			System.out.println("Database connection enstablished.");
 		} catch (SQLException e) {
-			System.err.println("Connection error.");
+			System.err.println("Connection error." + e);
 			this.conn = null;
 		}
 	}
@@ -38,7 +39,7 @@ public class DBManager {
 			conn.close();
 			System.out.println("Database connection closed.");
 		} catch (SQLException e) {
-			System.err.println("Close connection error.");
+			System.err.println("Close connection error." + e);
 		}
 	}
 	
@@ -47,7 +48,7 @@ public class DBManager {
 	}
 	
 	
-    private final String databaseURL = "jdbc:mysql://localhost:3306/oxyg";
+    private final String databaseURL = "jdbc:mysql://localhost:3306/oxyg?serverTimezone=Europe/Rome";
     private String username = "root";
     private String password = "root";
     
