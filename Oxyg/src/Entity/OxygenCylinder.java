@@ -4,21 +4,14 @@ public class OxygenCylinder {
 
 	public OxygenCylinder() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public OxygenCylinder(String id, Integer volume) {
-		super();
-		this.id = id;
-		this.volume = volume;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String string) {
-		this.id = string;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public Integer getVolume() {
@@ -29,9 +22,12 @@ public class OxygenCylinder {
 		this.volume = volume;
 	}
 
-	@Override
-	public String toString() {
-		return "ID: " + id + "| Volume: " + volume;
+	public boolean isState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
 	}
 
 	@Override
@@ -48,6 +44,8 @@ public class OxygenCylinder {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (state != other.state)
+			return false;
 		if (volume == null) {
 			if (other.volume != null)
 				return false;
@@ -56,7 +54,13 @@ public class OxygenCylinder {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "OxygenCylinder [id=" + id + ", volume=" + volume + ", state=" + state + "]";
+	}
+
 	private String id;
 	private Integer volume;
+	private boolean state;		//FALSE = available		TRUE = not available
 
 }
