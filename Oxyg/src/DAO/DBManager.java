@@ -39,7 +39,7 @@ public class DBManager {
 		return this.conn;
 	}
 
-	private final String databaseURL = "jdbc:mysql://localhost:3306/oxyg?serverTimezone=Europe/Rome";
+	private final String databaseURL = "jdbc:mysql://192.168.1.216:3306/oxyg?serverTimezone=Europe/Rome";
 	private String username = "root";
 	private String password = "root";
 

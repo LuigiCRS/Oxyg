@@ -1,11 +1,16 @@
 package Oxyg;
 
-import DAO.*;
+
+import java.io.IOException;
+
+import Boundary.*;
+
+
 
 public class Oxyg {
-	public static void main(String[] args) {
-		DBManager db = DBManager.getInstance();
-		db.openConnection();
-		db.closeConnection();
+	 
+	
+	public static void main(String[] args) throws IOException {
+			ApplicationConsole.start();
 	}
 }

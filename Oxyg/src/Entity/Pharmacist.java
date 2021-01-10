@@ -13,6 +13,12 @@ public class Pharmacist {
 		this.name = name;
 		this.surname = surname;
 	}
+	
+	public void init(Integer id, String name, String surname) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+	}
 
 	public static Pharmacist getInstance() {
 		if (instance == null) {
@@ -47,7 +53,7 @@ public class Pharmacist {
 
 	@Override
 	public String toString() {
-		return "Pharmacist [Id: " + id + "| Name: " + name + "| Surname: " + surname;
+		return "Pharmacist Id: " + id + " | Name: " + name + " | Surname: " + surname;
 	}
 
 	@Override
