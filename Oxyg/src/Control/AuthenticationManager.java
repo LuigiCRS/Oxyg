@@ -13,10 +13,7 @@ public class AuthenticationManager {
 	public static void Authentication(String username, String password) {
 		DBManager db = DBManager.getInstance();
 		Pharmacist p = Pharmacist.getInstance();
-		p.init(PharmacistDAO.readPharmacist(db, username, password).getId(),
-				PharmacistDAO.readPharmacist(db, username, password).getName(),
-				PharmacistDAO.readPharmacist(db, username, password).getSurname());
-		PharmacistDAO.readPharmacist(db, username, password).getId();
+		p.init(PharmacistDAO.readPharmacist(db, username, password));
 		if (p.getId() != null) {
 			state = true;
 		}

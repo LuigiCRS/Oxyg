@@ -6,6 +6,12 @@ public class OxygenCylinder {
 		super();
 	}
 
+	public OxygenCylinder(String id, Integer volume) {
+		super();
+		this.id = id;
+		this.volume = volume;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -61,6 +67,6 @@ public class OxygenCylinder {
 
 	private String id;
 	private Integer volume;
-	private boolean state;		//FALSE = available		TRUE = not available
+	private boolean state; // FALSE = available TRUE = not available
 
 }

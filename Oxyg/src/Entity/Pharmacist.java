@@ -1,7 +1,7 @@
 package Entity;
 
 public class Pharmacist {
-
+	
 	public Pharmacist() {
 		super();
 	}
@@ -14,10 +14,10 @@ public class Pharmacist {
 		this.surname = surname;
 	}
 	
-	public void init(Integer id, String name, String surname) {
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
+	public void init(Pharmacist p) {
+		this.id = p.getId();
+		this.name = p.getName();
+		this.surname = p.getSurname();
 	}
 
 	public static Pharmacist getInstance() {
