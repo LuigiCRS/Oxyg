@@ -1,7 +1,6 @@
 # INFO
 
-Java(TM) SE Runtime Environment version: 12.0.2\n
-Database: mySQL 8.0
+Java(TM) SE Runtime Environment version: 12.0.2 | Database: mySQL 8.0
 
 # SPECIFICATION
 This system is designed to keep track on every oxygen cylinder that a pharmacy sell.
