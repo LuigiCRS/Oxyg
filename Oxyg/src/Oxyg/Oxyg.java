@@ -11,6 +11,6 @@ public class Oxyg {
 	 
 	
 	public static void main(String[] args) throws IOException {
-			ApplicationConsole.start();
+			Authentication.start();
 	}
 }

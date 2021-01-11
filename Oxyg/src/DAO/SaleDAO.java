@@ -68,16 +68,31 @@ public class SaleDAO {
 	public static void writeSale(DBManager db, Client c, Pharmacist p, OxygenCylinder o) {
 		Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
 		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("INSERT INTO sale(idClient, idPharmacist, idOxygen, data) VALUES (?, ?, ?, ?)")) {
+				.prepareStatement("INSERT INTO sale(idClient, idPharmacist, idOxygen, data, state) VALUES (?, ?, ?, ?, ?)")) {
 			ps.setString(1, c.getCF());
 			ps.setInt(2, p.getId());
 			ps.setString(3, o.getId());
 			ps.setDate(4, sqlDate);
+			ps.setBoolean(5, true);
 
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
 			System.err.println("Write sale error." + e);
+		}
+	}
+	
+	public static void updateSale(DBManager db, String id, String CF, boolean oldState, boolean newState) {
+		try (PreparedStatement ps = db.getConnection().prepareStatement("UPDATE sale SET state = ? WHERE idOxygen = ? && state = ? && idClient = ?")) {
+			ps.setBoolean(1, newState);
+			ps.setString(2, id);
+			ps.setBoolean(3, oldState);
+			ps.setString(4, CF);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			System.err.println("Update state error." + e);
 		}
 	}
 

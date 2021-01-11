@@ -4,58 +4,54 @@ import java.sql.Date;
 
 public class Sale {
 
+	
 	public Sale() {
 		super();
 	}
-
-	public Sale(Client client, OxygenCylinder oxygen, Integer id, Pharmacist pharmacist, Date date) {
+	public Sale(Integer id, Client client, OxygenCylinder oxygen, Pharmacist pharmacist, Date date, boolean state) {
 		super();
+		this.id = id;
 		this.client = client;
 		this.oxygen = oxygen;
-		this.id = id;
 		this.pharmacist = pharmacist;
 		this.date = date;
+		this.state = state;
 	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
-	public OxygenCylinder getOxygen() {
-		return oxygen;
-	}
-
-	public void setOxygen(OxygenCylinder oxygen) {
-		this.oxygen = oxygen;
-	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	public OxygenCylinder getOxygen() {
+		return oxygen;
+	}
+	public void setOxygen(OxygenCylinder oxygen) {
+		this.oxygen = oxygen;
+	}
 	public Pharmacist getPharmacist() {
 		return pharmacist;
 	}
-
 	public void setPharmacist(Pharmacist pharmacist) {
 		this.pharmacist = pharmacist;
-
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public boolean isState() {
+		return state;
+	}
+	public void setState(boolean state) {
+		this.state = state;
 	}
 
 	@Override
@@ -92,13 +88,27 @@ public class Sale {
 				return false;
 		} else if (!pharmacist.equals(other.pharmacist))
 			return false;
+		if (state != other.state)
+			return false;
 		return true;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		/*Format as well*/
+		return "Sale [id=" + id + ", client=" + client + ", oxygen=" + oxygen + ", pharmacist=" + pharmacist + ", date="
+				+ date + ", state=" + state + "]";
+	}
+
+
 
 	private Integer id;
 	private Client client;
 	private OxygenCylinder oxygen;
 	private Pharmacist pharmacist;
 	private Date date;
+	private boolean state; // FALSE = available TRUE = not available
 
 }

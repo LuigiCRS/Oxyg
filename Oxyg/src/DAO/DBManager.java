@@ -19,7 +19,6 @@ public class DBManager {
 		try {
 
 			this.conn = DriverManager.getConnection(this.databaseURL, this.username, this.password);
-			System.out.println("Database connection enstablished.");
 		} catch (SQLException e) {
 			System.err.println("Connection error." + e);
 			this.conn = null;
@@ -29,7 +28,6 @@ public class DBManager {
 	public void closeConnection() {
 		try {
 			conn.close();
-			System.out.println("Database connection closed.");
 		} catch (SQLException e) {
 			System.err.println("Close connection error." + e);
 		}

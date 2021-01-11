@@ -28,13 +28,6 @@ public class OxygenCylinder {
 		this.volume = volume;
 	}
 
-	public boolean isState() {
-		return state;
-	}
-
-	public void setState(boolean state) {
-		this.state = state;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -50,8 +43,6 @@ public class OxygenCylinder {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (state != other.state)
-			return false;
 		if (volume == null) {
 			if (other.volume != null)
 				return false;
@@ -62,11 +53,10 @@ public class OxygenCylinder {
 
 	@Override
 	public String toString() {
-		return "OxygenCylinder [id=" + id + ", volume=" + volume + ", state=" + state + "]";
+		return "OxygenCylinder [id=" + id + ", volume=" + volume +  "]";
 	}
 
 	private String id;
 	private Integer volume;
-	private boolean state; // FALSE = available TRUE = not available
 
 }

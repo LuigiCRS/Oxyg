@@ -12,7 +12,6 @@ public class OxygenCylinderDAO {
 		OxygenCylinder o = new OxygenCylinder();
 		o.setId(rs.getString("id"));
 		o.setVolume(rs.getInt("volume"));
-		o.setState(rs.getBoolean("state"));
 		return o;
 	}
 
@@ -58,10 +57,9 @@ public class OxygenCylinderDAO {
 
 	public static void writeOxygenCylinder(DBManager db, String id, Integer volume) {
 		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("INSERT INTO oxygen(id, volume, state) VALUES (?, ?, ?)")) {
+				.prepareStatement("INSERT INTO oxygen(id, volume) VALUES (?, ?)")) {
 			ps.setString(1, id);
 			ps.setInt(2, volume);
-			ps.setBoolean(3, true);
 
 			ps.executeUpdate();
 
@@ -73,13 +71,12 @@ public class OxygenCylinderDAO {
 	public static void writeOxygensCylinders(DBManager db, ArrayList<OxygenCylinder> os) {
 		Iterator<OxygenCylinder> i = os.iterator();
 		try (PreparedStatement ps = db.getConnection()
-				.prepareStatement("INSERT INTO oxygen(id, volume) VALUES (?, ?, ?)")) {
+				.prepareStatement("INSERT INTO oxygen(id, volume) VALUES (?, ?)")) {
 			while (i.hasNext()) {
 				OxygenCylinder o = i.next();
 
 				ps.setString(1, o.getId());
 				ps.setInt(2, o.getVolume());
-				ps.setBoolean(3, true);
 
 				ps.executeUpdate();
 			}
@@ -89,16 +86,5 @@ public class OxygenCylinderDAO {
 		}
 	}
 
-	public static void updateAvailableOC(DBManager db, String id, boolean newState) {
-		try (PreparedStatement ps = db.getConnection().prepareStatement("UPDATE oxygen SET state = ? WHERE id = ?")) {
-			ps.setBoolean(1, newState);
-			ps.setString(2, id);
-
-			ps.executeUpdate();
-
-		} catch (SQLException e) {
-			System.err.println("Update state error." + e);
-		}
-	}
 
 }

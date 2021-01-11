@@ -8,6 +8,13 @@ import Control.AuthenticationManager;
 
 public class Authentication {
 
+	public static void start() throws IOException {
+		System.out.println("******     LOGIN     ******");
+		AuthenticationManager.openConnection();
+		Login();
+		PharmacistConsole.console();
+	}
+	
 	public static void Login() throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Username: ");

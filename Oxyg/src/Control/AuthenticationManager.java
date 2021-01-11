@@ -5,6 +5,11 @@ import DAO.PharmacistDAO;
 import Entity.Pharmacist;
 
 public class AuthenticationManager {
+	
+	public static void openConnection() {
+		DBManager db = DBManager.getInstance();
+		db.openConnection();
+	}
 
 	public static boolean isAuthenticated() {
 		return state;
