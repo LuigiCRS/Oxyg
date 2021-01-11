@@ -1,6 +1,6 @@
 # INFO
 
-Java(TM) SE Runtime Environment version: 12.0.2
+Java(TM) SE Runtime Environment version: 12.0.2\n
 Database: mySQL 8.0
 
 # SPECIFICATION
